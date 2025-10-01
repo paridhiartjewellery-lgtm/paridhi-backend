@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: paridhi-art-jewellery-backend
-    env: go
-    buildCommand: ./pocketbase.exe serve
-    startCommand: ./pocketbase.exe serve
-    plan: free
