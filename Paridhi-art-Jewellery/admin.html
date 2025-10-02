@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+  <h1>Admin Panel</h1>
+
+  <section>
+    <h2>Batches</h2>
+    <input type="text" id="newBatchName" placeholder="New batch name" />
+    <button onclick="addBatch()">Add Batch</button>
+    <ul id="batchList"></ul>
+  </section>
+
+  <section id="productSection" class="hidden">
+    <h2>Products in <span id="selectedBatchName"></span></h2>
+    <input type="text" id="newProductName" placeholder="New product name" />
+    <button onclick="addProduct()">Add Product</button>
+    <ul id="productList"></ul>
+
+    <h3>Manage Images for <span id="selectedProductName"></span></h3>
+    <input type="file" id="imageUpload" multiple />
+    <button onclick="uploadImages()">Upload Images</button>
+
+    <div id="imageList" class="products-grid"></div>
+  </section>
+
+  <button onclick="copyShareLink()">🔗 Share Website Link</button>
+  <p id="shareStatus"></p>
+
+  <script src="admin.js"></script>
+</body>
+</html>
+
+
