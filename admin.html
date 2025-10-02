@@ -26,17 +26,15 @@
     <ul id="productList"></ul>
 
     <h3>Manage Images for <span id="selectedProductName"></span></h3>
-    <input type="file" id="imageUpload" multiple />
+    <input type="file" id="imageUpload" multiple accept=".jpg,.jpeg,image/jpeg" />
     <button onclick="uploadImages()">Upload Images</button>
 
     <div id="imageList" class="products-grid"></div>
   </section>
 
-  <button onclick="copyShareLink()">🔗 Share Website Link</button>
-  <p id="shareStatus"></p>
-
   <script src="admin.js"></script>
 </body>
 </html>
+
 
 
