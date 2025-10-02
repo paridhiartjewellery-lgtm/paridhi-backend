@@ -135,11 +135,15 @@ async function uploadImages() {
   if(!files.length) { alert("Select images"); return; }
   const product = batches[selectedBatchIndex].products[selectedProductIndex];
 
-  for(const file of files){
-    if(!file.type.startsWith("image/")) continue;
-    const url = await uploadToCloudinary(file);
-    product.images.push(url);
+  for (const file of files) {
+  const fileName = file.name.toLowerCase();
+  if (!(fileName.endsWith(".jpg") || fileName.endsWith(".jpeg"))) {
+    alert("🚫 केवल JPG/JPEG images upload कर सकते हैं!");
+    continue;
   }
+  const url = await uploadToCloudinary(file);
+  product.images.push(url);
+}
   saveData(); renderImageList();
 }
 
@@ -179,13 +183,6 @@ function renderImageList() {
   });
 }
 
-// ------------------- Share Link -------------------
-function copyShareLink() {
-  const link=window.location.origin+"/index.html";
-  navigator.clipboard.writeText(link).then(()=>{
-    document.getElementById("shareStatus").textContent="Link copied! Share with family.";
-  }).catch(()=>{ document.getElementById("shareStatus").textContent="Failed to copy."; });
-}
-
 // ------------------- Initialize -------------------
 checkAdminLogin();
+
