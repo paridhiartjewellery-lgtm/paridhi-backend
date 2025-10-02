@@ -1,1 +1,1 @@
-# paridhi-backend
+# paridhi-art-jewellery-mumbai
