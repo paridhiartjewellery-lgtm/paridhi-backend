@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Admin Panel</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
 
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+  <script>
+    // Yahan par aapka Firebase configuration code aayega
+const firebaseConfig = {
+  apiKey: "AIzaSyA-myfEItcRC4uULCNkVMP0KNu3sSST2tg",
+  authDomain: "paridhi-art-jewellery-87f66.firebaseapp.com",
+  projectId: "paridhi-art-jewellery-87f66",
+  storageBucket: "paridhi-art-jewellery-87f66.firebasestorage.app",
+  messagingSenderId: "128306195473",
+  appId: "1:128306195473:web:8b54082d566750b16a15b0",
+  measurementId: "G-GJSRK80BVN"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+  </script>
+
 </head>
 <body>
-  <h1>Admin Panel</h1>
+  <h1>Admin Panel</h1>
+  <section>
+    <h2>Batches</h2>
+    <input type="text" id="newBatchName" placeholder="New batch name" />
+    <button onclick="addBatch()">Add Batch</button>
+    <ul id="batchList"></ul>
+  </section>
 
-  <section>
-    <h2>Batches</h2>
-    <input type="text" id="newBatchName" placeholder="New batch name" />
-    <button onclick="addBatch()">Add Batch</button>
-    <ul id="batchList"></ul>
-  </section>
+  <section id="productSection" class="hidden">
+    <h2>Products in <span id="selectedBatchName"></span></h2>
+    <input type="text" id="newProductName" placeholder="New product name" />
+    <button onclick="addProduct()">Add Product</button>
+    <ul id="productList"></ul>
+    <h3>Manage Images for <span id="selectedProductName"></span></h3>
+    <input type="file" id="imageUpload" multiple />
+    <button onclick="uploadImages()">Upload Images</button>
+    <ul id="imageList"></ul>
+  </section>
 
-  <section id="productSection" class="hidden">
-    <h2>Products in <span id="selectedBatchName"></span></h2>
-    <input type="text" id="newProductName" placeholder="New product name" />
-    <button onclick="addProduct()">Add Product</button>
-    <ul id="productList"></ul>
-    <input type="file" id="imageUpload" multiple accept=".jpg,.jpeg,image/jpeg" />
-    <h3>Manage Images for <span id="selectedProductName"></span></h3>
-    
-    <button onclick="uploadImages()">Upload Images</button>
-
-    <div id="imageList" class="products-grid"></div>
-  </section>
-
-
-  <script src="admin.js"></script>
+  <script src="admin.js"></script>
 </body>
 </html>
+
+
+
 
 
